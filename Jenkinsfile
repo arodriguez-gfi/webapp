@@ -24,16 +24,16 @@ pipeline {
         stage('BuildDocker') {
             steps {
             	sh '''
-            		docker build -t apptest:latest .
+            		sudo docker build -t apptest:latest .
                 '''
             }
         } 
     stage('PushDockerImage') {
             steps {
             	sh '''
-            		docker tag apptest:latest albertorodgz/apptest:latest
-					docker push albertorodgz/apptest:latest
-					docker rmi apptest:latest
+            		sudo docker tag apptest:latest albertorodgz/apptest:latest
+			sudo docker push albertorodgz/apptest:latest
+			sudo docker rmi apptest:latest
                 '''
             }
         } 
